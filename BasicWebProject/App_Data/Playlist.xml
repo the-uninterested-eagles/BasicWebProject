@@ -1,0 +1,57 @@
+<?xml version="1.0" standalone="yes"?>
+<playlist>
+  <song>
+    <id>1</id>
+    <artist>Twenty One Pilots</artist>
+    <title>Stressed Out</title>
+    <year>2016</year>
+    <genre>Rap-rock</genre>
+    <time>3:22</time>
+    <file>twenty-one-pilots_stressed-out.mp3</file>
+  </song>
+  <song>
+    <id>2</id>
+    <artist>Twenty One Pilots</artist>
+    <title>Heathens</title>
+    <year>2016</year>
+    <genre>Rap-rock</genre>
+    <time>3:15</time>
+    <file>twenty-one-pilots_Heathens.mp3</file>
+  </song>
+  <song>
+    <id>1</id>
+    <artist>tiego</artist>
+    <title>tiessen</title>
+    <year>2001</year>
+    <genre>reitgans</genre>
+    <time>3</time>
+    <file>kys.exe</file>
+  </song>
+  <song>
+    <id>7</id>
+    <artist>asif</artist>
+    <title>sdiuf</title>
+    <year>sdfiuh</year>
+    <genre>sdfiuh</genre>
+    <time>uwdfiuhsdfiuh</time>
+    <file>wdifuhwiud</file>
+  </song>
+  <song>
+    <id>7</id>
+    <artist>Lady Gaga</artist>
+    <title>Pokerface</title>
+    <year>2015</year>
+    <genre>Top40</genre>
+    <time>4:12</time>
+    <file>LadyGaga.mp3</file>
+  </song>
+  <song>
+    <id />
+    <artist />
+    <title />
+    <year />
+    <genre />
+    <time />
+    <file />
+  </song>
+</playlist>

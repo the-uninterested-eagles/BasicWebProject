@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+@using System.Data;
+@using BasicWebProject.App_Code;
+
+@{
+    SongMethods mySongMethods = Session["playlistClass"] as SongMethods;
+    string file = Session["file"] as string;
+    DataSet ds = mySongMethods.GetAllSongs();
+    string id = Request.QueryString["id"];
+
+    if (IsPost)
+    {
+        if (Request.Form["Choice"] == "yes")
+        {
+            mySongMethods.DeleteSong(Request.Form["menu"], file);
+        }
+        
+        Response.Redirect(@"~/index.cshtml");
+    }
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="~/assets/css/main.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <form method="post" action="">
+        <div>Are u sure you want to delete the song?</div>
+        <table>
+            <tr>
+                <td>
+                    <input type="radio" class="radio1" name="choice" />yes
+                    <input type="radio" name="choice" />no
+                    <input type="submit" value="verwijderen" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

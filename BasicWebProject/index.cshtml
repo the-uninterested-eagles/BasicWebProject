@@ -1,0 +1,60 @@
+﻿@using System.Data;
+@using BasicWebProject.App_Code;
+
+@{
+    SongMethods mySongMethods = new SongMethods();
+    string file = @"~/App_Data/playlist.xml";
+    DataSet ds = mySongMethods.GetAllSongs(file);
+    Session["playlistClass"] = mySongMethods;
+    Session["file"] = file;
+}
+
+<!DOCTYPE html>
+<header><h1>Header</h1></header>
+<html>
+<head>
+    <link href="~/Content/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="~/assets/css/main.css" rel="stylesheet" />
+    <link href="~/assets/css/nav.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+    <br /><br /><br />
+    <a href="~/Pages/CreateSong.cshtml"><i class="fas fa-plus-square fa-lg"></i></a><br /><br />
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Artist</td>
+                <td>Title</td>
+                <td>Year</td>
+                <td>Genre</td>
+                <td>Time</td>
+                <td>File</td>
+                <td>&times;</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DataRow dr in ds.Tables["song"].Rows)
+            {
+                <tr>
+                    <td>@dr["id"]</td>
+                    <td>@dr["artist"]</td>
+                    <td>@dr["title"]</td>
+                    <td>@dr["year"]</td>
+                    <td>@dr["genre"]</td>
+                    <td>@dr["time"]</td>
+                    <td>@dr["file"]</td>
+
+                    <td><a href="~/Pages/DeleteSong.cshtml?id=@dr["id"]"><i class="fas fa-trash-alt"></i></a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br /><br />
+    <footer>
+        <div>test2</div>
+    </footer>
+</body>
+</html>
+<br /><br />

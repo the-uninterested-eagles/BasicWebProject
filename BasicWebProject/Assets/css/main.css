@@ -1,0 +1,29 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;    
+}
+
+table, td, tr {
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+header {
+    background-color: greenyellow;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    text-align: center;
+    height: 35px;
+}
+
+footer {
+    background-color: greenyellow;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    height: 35px;
+}

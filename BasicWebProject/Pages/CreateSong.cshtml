@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+@using System.Data;
+@using BasicWebProject.App_Code;
+
+@{
+    SongMethods mySongMethods = Session["playlistClass"] as SongMethods;
+    string file = Session["file"] as string;
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/assets/css/main.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <form method="post" action="">
+            <table>
+                <tr>Enter the details of a new song here.</tr>
+                <tr class="Text">
+                    <td>ID:</td>
+                    <td><input type="text" name="id" /></td>
+                </tr>
+                <tr>
+                    <td>Artist:</td>
+                    <td><input type="text" name="artist" /></td>
+                </tr>
+                <tr>
+                    <td>Title:</td>
+                    <td><input type="text" name="title" /></td>
+                </tr>
+                <tr>
+                    <td>Year:</td>
+                    <td><input type="text" name="year" /></td>
+                </tr>
+                <tr>
+                    <td>Genré:</td>
+                    <td><input type="text" name="genre" /></td>
+                </tr>
+                <tr>
+                    <td>Time:</td>
+                    <td><input type="text" name="time" /></td>
+                </tr>
+                <tr>
+                    <td>File:</td>
+                    <td><input type="text" name="file" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    @if (IsPost)
+    {
+        DataRow dr = mySongMethods.GetEmptyDataRow();
+
+        dr[0] = Request.Form["id"];
+        dr[1] = Request.Form["artist"];
+        dr[2] = Request.Form["title"];
+        dr[3] = Request.Form["year"];
+        dr[4] = Request.Form["genre"];
+        dr[5] = Request.Form["time"];
+        dr[6] = Request.Form["file"];
+
+        mySongMethods.CreateSong(dr, file);
+        Response.Redirect(@"~/index.cshtml");
+    }
+</body>
+</html>
